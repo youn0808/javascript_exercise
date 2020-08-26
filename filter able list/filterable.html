@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>filterable book list</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center-align" id="h1">My Contetns</h1>
+
+
+        <!-- input data  -->
+        <input type="text" placeholder="input textbook name..." id="input">
+
+        <ul id='ul'>
+            <li class='collection-header'>
+                <h1>A</h1>
+            </li>
+            <li class='collection-item'>
+                <a href="">Aboey</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Abona</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Alliy</a>
+            </li>
+
+
+            <li class='collection-header'>
+                <h1>B</h1>
+            </li>
+            <li class='collection-item'>
+                <a href="">Beys</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Bona</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Belly</a>
+            </li>
+
+
+
+            <li class='collection-header'>
+                <h1>C</h1>
+            </li>
+            <li class='collection-item'>
+                <a href="">Candy</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Cally</a>
+            </li>
+            <li class='collection-item'>
+                <a href="">Chose</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <script>
+
+        let filterInput = document.querySelector('#input');
+
+        filterInput.addEventListener('keyup', showdisplay);
+
+        function showdisplay() {
+            // select ui
+
+            let ul = document.querySelector('#ul');
+            let li = document.querySelectorAll('li.collection-item');
+
+            let filterValue = document.querySelector('#input').value.toUpperCase();
+            // li 
+
+
+            // loop throw coolection - item
+            for (let i = 0; i < li.length; i++) {
+
+                let a = li[i].getElementsByTagName('a')[0];
+
+                // if matches 
+
+                if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
